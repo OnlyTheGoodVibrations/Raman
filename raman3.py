@@ -45,8 +45,8 @@ timer_delay = 1000    # milliseconds
 #   on Linux it returns "posix"
 # on Windows 10, sys.platform returns "win32".
 #   on Linux it returns "linux"
-print ( os.name )
-print ( sys.platform )
+# print ( os.name )
+# print ( sys.platform )
 
 if ( sys.platform == "linux" ) :
     raman_lib_dir = os.path.expanduser ( "~/RamanLib" )
