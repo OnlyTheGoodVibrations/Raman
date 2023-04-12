@@ -632,13 +632,6 @@ class Raman_Lib_File () :
 # Perhaps someday we will do that, or else generate our one file with
 # a summary.
 
-# We effectively black list this species because of the weird characters
-# in the locality, maybe someday we will return and do something about this.
-# If I was the only one using the program, I would edit the two files in
-# the library and get rid of the nasty characters, but other people will
-# hopefully use the program and it is unreasonable to expect them to do that.
-bogus_species = "Cobaltarthurite"
-
 class Raman_Library () :
         def __init__ ( self ) :
             self.files = []
@@ -649,9 +642,7 @@ class Raman_Library () :
                 #if file == bogus_file :
                 #    self.files.append ( Raman_Lib_File ( file, fpath, True ) )
                 #    continue
-                if file.startswith ( bogus_species ) :
-                    continue
-                #print ( "Lib: ", file, fpath )
+                    # print ( "Lib: ", file, fpath )
                 if os.path.isfile ( fpath ) and file.endswith ( "txt" ) :
                     self.files.append ( Raman_Lib_File ( file, fpath, False ) )
 
