@@ -521,7 +521,7 @@ class Raman_Frame ( wx.Frame ):
             s.Show ()
             s.Popup ( focus=self )
 
-        # This opens the users unknow file
+        # This opens the users unknown file
         def OpenFile ( self, event ) :
             print ( "Let's open a file (2)!" )
 
@@ -598,6 +598,9 @@ class Raman_Lib_File () :
             # On linux this is slow the first time, but then the file
             #  data cache is loaded and it is quite fast after that.
             #print ( file )
+            
+            #*# using codecs to handle encodings seems to fix issues 
+            #*# with foreign characters, may allow us to expand to UTF-16 or better if desired.
             with codecs.open( fpath, encoding='utf-8', mode='r', errors='replace') as f:
                 first = f.readline().rstrip()
             self.species = first[first.index("=")+1:]
