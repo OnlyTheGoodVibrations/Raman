@@ -23,6 +23,7 @@ import wx
 import os
 import sys
 import numpy as np
+import codecs
 
 # Global variables point to major objects
 graph = None    # graph object (left side)
@@ -597,8 +598,8 @@ class Raman_Lib_File () :
             # On linux this is slow the first time, but then the file
             #  data cache is loaded and it is quite fast after that.
             #print ( file )
-            with open ( fpath, 'r') as f:
-                    first = f.readline().rstrip()
+            with codecs.open( fpath, encoding='utf-8', mode='r', errors='replace') as f:
+                first = f.readline().rstrip()
             self.species = first[first.index("=")+1:]
 
             #print ( self.species )
